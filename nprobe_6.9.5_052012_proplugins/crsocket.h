@@ -1,0 +1,1 @@
+int init_socket(const char* ip_dest,int port_dest);

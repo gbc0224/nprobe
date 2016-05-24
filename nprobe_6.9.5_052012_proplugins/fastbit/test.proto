@@ -1,0 +1,12 @@
+package test;
+message fastbit {
+	required int32 num_entries = 1 ;
+	required int32 max_num_entries = 2 ;
+	required int32 fb_element_len = 3 ;
+	repeated fb_element_meta fb_element = 4;  
+}
+message fb_element_meta{
+	required int32 id = 1;
+	repeated int32 data = 2;
+}
+  

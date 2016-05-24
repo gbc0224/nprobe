@@ -1,0 +1,37 @@
+syntax = "proto3";
+package proquery;
+service fbquery{
+  rpc query(fbparameters) returns (datareply) {}
+}
+message fbparameters{
+	string select = 1;
+	repeated string from = 2;
+	string where = 3;
+	repeated TemplateElementId elem = 4;
+}
+message datareply{
+	int32 columncount = 1;
+	int32 rowcount = 2;
+	repeated dataelemt delemt = 3;
+}
+message dataelemt{
+	string columnname = 1;
+	int32 columntypelen = 2;
+	repeated int32 data = 3;
+}
+message prodata{
+	string dump_dir = 1;
+	int32 num_entries = 2;
+	int32 fb_elementlen = 3;
+	repeated int32 fastbit_dump_switch = 4;
+	repeated TemplateElementId templateelement = 5;
+	repeated fb_element fb_element = 6;
+}
+message TemplateElementId{
+	int32 templateElementLen = 1;
+	string netflowElementName = 2;
+	repeated int32 uintdata = 3;
+}
+message fb_element{
+	repeated bytes fb_element_data = 1;
+}
